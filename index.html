@@ -14,22 +14,46 @@
 <th title="Field #5">SHIB</th>
 <th title="Field #6">MATIC</th>
 <th title="Field #7">UST</th>
-<th title="Field #8">BNB</th>
-<th title="Field #9">TRON</th>
-<th title="Field #10">UNI</th>
+<th title="Field #8">UNI</th>
 </tr></thead>
 <tbody><tr>
-<td align="right">14064703</td>
-<td align="right">14064678</td>
-<td align="right">14064708</td>
-<td align="right">14064708</td>
-<td align="right">14064703</td>
-<td align="right">14064708</td>
-<td align="right">14064695</td>
-<td>0</td>
-<td>0</td>
-<td align="right">14064707</td>
+<td id="AAVE"align="right">0</td>
+<td id="TEL"align="right">0</td>
+<td id="USDC"align="right">0</td>
+<td id="HEX"align="right">0</td>
+<td id="SHIB"align="right">0</td>
+<td id="MATIC"align="right">0</td>
+<td id="UST"align="right">0</td>
+<td id="UNI"align="right">0</td>
 </tr>
+
+<input type="button" value="Generate Table" onclick="GenerateTable()" />
+<hr />
+<div id="dvTable"></div>
+
+<script>
+var intervalId = window.setInterval(function(){
+  GenerateTable()
+}, 5000);
+function GenerateTable() {
+        //Build an array containing Customer records.
+        // let obj = null
+        fetch("TOKENBLOCK.json")
+        .then(response => response.json())
+        .then(json =>{ 
+        var obj =json 
+        for (const [key, value] of Object.entries(obj)) {
+         console.log(key, value);
+         document.getElementById(key).textContent = value;
+        }
+        
+        });
+  
+        //Create a HTML Table element.
+      
+    }
+</script>
+
 </tbody></table>
 </body>
 </html>
