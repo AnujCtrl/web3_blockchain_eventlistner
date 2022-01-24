@@ -1,8 +1,3 @@
-const express = require('express');
-const app = express();
-app.get('/', (req,res)=>{
-  res.sendFile(__dirname + "index.html");
-});
 
 
 const Web3 = require('web3');
